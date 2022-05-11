@@ -12,5 +12,5 @@ int main(int, char* [])
 
     ecs.component<TileStatus>();
     auto tile = ecs.entity().add(TileStatus::Free); // Also assert;
-    std::cout << "Tile : " << tile << "\n";
+    std::cout << "Tile : " << tile.has<TileStatus>() << "\n";
 }
