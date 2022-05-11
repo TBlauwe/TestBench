@@ -2,22 +2,22 @@
 # et incluez les sous-projets ici.
 #
 cmake_minimum_required (VERSION 3.8)
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 
 project ("TestBench")
 
 # CMake libraries
 # ===============
-set(CPM_DOWNLOAD_VERSION 0.35.0)
-include(cmake/FindCPM.cmake)
+include(FetchContent)
 
-CPMAddPackage(
-        NAME flecs
-        GITHUB_REPOSITORY SanderMertens/flecs
-        GIT_TAG master
-        OPTIONS
-        "FLECS_STATIC_LIBS ON"
-        "FLECS_SHARED_LIBS OFF"
+set(FLECS_STATIC_LIBS ON)
+set(FLECS_SHARED_LIBS OFF)
+FetchContent_Declare(
+    flecs 
+    GIT_REPOSITORY "https://github.com/SanderMertens/flecs"
+    GIT_TAG master
 )
+FetchContent_MakeAvailable(flecs)
 
 add_executable (TestBench "src/main.cpp")
 target_link_libraries(TestBench flecs::flecs_static)
