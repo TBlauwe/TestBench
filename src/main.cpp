@@ -1,4 +1,5 @@
 ﻿#include <flecs.h>
+#include <iostream>
 
 enum class TileStatus {
     Free,
@@ -10,5 +11,6 @@ int main(int, char* [])
     flecs::world ecs;
 
     ecs.component<TileStatus>();
-    //ecs.entity().add(TileStatus::Free); // Also assert;
+    auto tile = ecs.entity().add(TileStatus::Free); // Also assert;
+    std::cout << "Tile : " << tile << "\n";
 }
