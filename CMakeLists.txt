@@ -9,6 +9,7 @@ project ("TestBench")
 # CMake libraries
 # ===============
 include(FetchContent)
+find_package(Threads REQUIRED)
 
 set(FLECS_STATIC_LIBS ON)
 set(FLECS_SHARED_LIBS OFF)
@@ -20,5 +21,5 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(flecs)
 
 add_executable (TestBench "src/main.cpp")
-target_link_libraries(TestBench flecs::flecs_static)
+target_link_libraries(TestBench flecs::flecs_static Threads::Threads)
 
