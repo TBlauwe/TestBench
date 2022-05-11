@@ -7,3 +7,15 @@ fatal: entity.c: 2027: assert: name_assigned == ecs_has_pair( world, result, ecs
 ```
 
 But not on the other configuration, even "x64 Release (Clang)" works.
+
+## Building 
+
+```
+git clone https://github.com/TBlauwe/TestBench.git
+cd TestBench/
+mkdir build
+cd build/
+cmake ../
+cmake --build .
+./TestBench
+```
