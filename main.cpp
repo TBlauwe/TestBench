@@ -1,7 +1,7 @@
 ﻿#include <flecs.h>
 #include <iostream>
 
-enum class TileStatus {
+enum class TileStatus : uint32_t {
     Free,
     Occupied
 };

@@ -20,6 +20,6 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(flecs)
 
-add_executable (TestBench "src/main.cpp")
+add_executable (TestBench "main.cpp")
 target_link_libraries(TestBench flecs::flecs_static Threads::Threads)
 
